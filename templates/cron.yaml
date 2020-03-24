@@ -11,7 +11,6 @@ spec:
   schedule: {{ .Values.cronjob.schedule }}
   jobTemplate:
     spec:
-      replicas: {{ .Values.scale.minReplicas }}
       selector:
         matchLabels:
           type: {{ .Chart.Name }}
@@ -41,7 +40,7 @@ spec:
               {{- end }}
               env:
                 - name: PORT
-                  value: {{ .Values.port | quote  }}
+                  value: {{ .Values.port | quote }}
               {{- if .Values.env }}
               {{- range $key, $val := .Values.env }}
                 - name: {{ $key }}
@@ -52,18 +51,6 @@ spec:
                 - name: http
                   containerPort: {{ .Values.port }}
                   protocol: TCP
-              {{- if .Values.probe.liveness }}
-              livenessProbe:
-                httpGet:
-                  path: {{ .Values.probe.liveness | quote }}
-                  port: http
-              {{- end }}
-              {{- if .Values.probe.readiness }}
-              readinessProbe:
-                httpGet:
-                  path: {{ .Values.probe.readiness | quote }}
-                  port: http
-              {{- end }}
               resources:
                 {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.nodeSelector }}

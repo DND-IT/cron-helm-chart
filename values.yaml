@@ -1,9 +1,3 @@
-# App specific configs
-scale:
-  minReplicas: 1
-  maxReplicas: 10
-  cpuThresholdPercentage: 60
-  memoryThresholdPercentage: 60
 
 port: 80
 # ["bundle", "exec", "rake", "db:create", "db:migrate"]
@@ -16,10 +10,6 @@ env: {}
 image_repo: nginx
 image_tag: stable
 image_pull_policy: IfNotPresent
-
-probe:
-  liveness: /
-  readiness: /
 
 cronjob:
   schedule : /
