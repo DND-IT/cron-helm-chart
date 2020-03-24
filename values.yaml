@@ -1,9 +1,6 @@
 
 port: 80
-# ["bundle", "exec", "rake", "db:create", "db:migrate"]
-# command: []
 command: []
-# ["db:create", "db:migrate"]
 args: []
 env: {}
 
