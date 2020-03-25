@@ -32,11 +32,11 @@ spec:
               imagePullPolicy: {{ .Values.image_pull_policy }}
               {{- if .Values.command }}
               command:
-                {{- .Values.command | toYaml | nindent 12 }}
+                {{- .Values.command | toYaml | nindent 16 }}
               {{- end }}
               {{- if .Values.args }}
               args:
-                {{- .Values.args | toYaml | nindent 12 }}
+                {{- .Values.args | toYaml | nindent 16 }}
               {{- end }}
               env:
                 - name: PORT
@@ -52,16 +52,16 @@ spec:
                   containerPort: {{ .Values.port }}
                   protocol: TCP
               resources:
-                {{- toYaml .Values.resources | nindent 12 }}
+                {{- toYaml .Values.resources | nindent 16 }}
           {{- with .Values.nodeSelector }}
           nodeSelector:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
           {{- end }}
         {{- with .Values.affinity }}
           affinity:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
         {{- end }}
         {{- with .Values.tolerations }}
           tolerations:
-            {{- toYaml . | nindent 8 }}
+            {{- toYaml . | nindent 12 }}
         {{- end }}
