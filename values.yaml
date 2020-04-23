@@ -28,3 +28,5 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+restartPolicy: "Never"
