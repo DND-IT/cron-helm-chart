@@ -11,15 +11,7 @@ spec:
   schedule: {{ .Values.cronjob.schedule }}
   jobTemplate:
     spec:
-      selector:
-        matchLabels:
-          type: {{ .Chart.Name }}
-          app: {{ .Release.Name }}
       template:
-        metadata:
-          labels:
-            type: {{ .Chart.Name }}
-            app: {{ .Release.Name }}
         spec:
           {{- if .Values.aws_iam_role_arn }}	
           serviceAccountName: {{ .Release.Name }}	
