@@ -30,3 +30,10 @@ tolerations: []
 affinity: {}
 
 restartPolicy: "Never"
+
+metadata:
+  labels:
+    datadog:
+      env: ""
+      service: ""
+      version: ""

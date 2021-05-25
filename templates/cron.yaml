@@ -7,13 +7,13 @@ metadata:
     heritage: {{ .Release.Service }}
     type: {{ .Chart.Name }}
     app: {{ .Release.Name }}
-    {{- if .Values.metadata.labels.datadog.env }}	
+    {{- if .Values.metadata.labels.datadog.env }}
     tags.datadoghq.com/env: {{ .Values.metadata.labels.datadog.env }}
     {{- end }}
-    {{- if .Values.metadata.labels.datadog.service }}	
+    {{- if .Values.metadata.labels.datadog.service }}
     tags.datadoghq.com/service: {{ .Values.metadata.labels.datadog.service }}
     {{- end }}
-    {{- if .Values.metadata.labels.datadog.version }}	
+    {{- if .Values.metadata.labels.datadog.version }}
     tags.datadoghq.com/version: {{ .Values.metadata.labels.datadog.version }}
     {{- end }}
 spec:
@@ -28,10 +28,10 @@ spec:
             {{- if .Values.metadata.labels.datadog.env }}	
             tags.datadoghq.com/env: {{ .Values.metadata.labels.datadog.env }}
             {{- end }}
-            {{- if .Values.metadata.labels.datadog.service }}	
+            {{- if .Values.metadata.labels.datadog.service }}
             tags.datadoghq.com/service: {{ .Values.metadata.labels.datadog.service }}
             {{- end }}
-            {{- if .Values.metadata.labels.datadog.version }}	
+            {{- if .Values.metadata.labels.datadog.version }}
             tags.datadoghq.com/version: {{ .Values.metadata.labels.datadog.version }}
             {{- end }}
         spec:
@@ -55,13 +55,13 @@ spec:
               env:
                 - name: PORT
                   value: {{ .Values.port | quote }}
-                {{- if .Values.metadata.labels.datadog.env }}	
+                {{- if .Values.metadata.labels.datadog.env }}
                 - name: DD_ENV
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.labels['tags.datadoghq.com/env']
                 {{- end }}
-                {{- if .Values.metadata.labels.datadog.service }}	
+                {{- if .Values.metadata.labels.datadog.service }}
                 - name: DD_SERVICE
                   valueFrom:
                     fieldRef:
