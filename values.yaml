@@ -1,4 +1,3 @@
-
 port: 80
 command: []
 args: []
@@ -10,6 +9,10 @@ image_pull_policy: IfNotPresent
 
 cronjob:
   schedule : /
+
+  # This flag tells the controller to suspend subsequent executions,
+  # it does not apply to already started executions. Defaults to false.
+  suspend: false
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

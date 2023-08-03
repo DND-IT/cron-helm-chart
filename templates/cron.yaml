@@ -25,7 +25,7 @@ spec:
           labels:
             type: {{ .Chart.Name }}
             app: {{ .Release.Name }}
-            {{- if .Values.metadata.labels.datadog.env }}	
+            {{- if .Values.metadata.labels.datadog.env }}
             tags.datadoghq.com/env: {{ .Values.metadata.labels.datadog.env }}
             {{- end }}
             {{- if .Values.metadata.labels.datadog.service }}
@@ -35,10 +35,10 @@ spec:
             tags.datadoghq.com/version: {{ .Values.metadata.labels.datadog.version }}
             {{- end }}
         spec:
-          {{- if .Values.aws_iam_role_arn }}	
-          serviceAccountName: {{ .Release.Name }}	
-          securityContext:	
-            fsGroup: 65534 # To be able to read Kubernetes and AWS token files	
+          {{- if .Values.aws_iam_role_arn }}
+          serviceAccountName: {{ .Release.Name }}
+          securityContext:
+            fsGroup: 65534 # To be able to read Kubernetes and AWS token files
           {{- end }}
           containers:
             - name: {{ .Release.Name }}
@@ -67,7 +67,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.labels['tags.datadoghq.com/service']
                 {{- end }}
-                {{- if .Values.metadata.labels.datadog.version }}	
+                {{- if .Values.metadata.labels.datadog.version }}
                 - name: DD_VERSION
                   valueFrom:
                     fieldRef:
