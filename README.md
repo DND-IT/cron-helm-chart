@@ -36,7 +36,7 @@ File `example.tf`
 ```hcl
 resource "helm_release" "trigger_url" {
   name             = "trigger-a-google-search"
-  chart            = "https://github.com/DND-IT/cron-helm-chart/archive/v1.0.1.tar.gz"
+  chart            = "https://github.com/DND-IT/cron-helm-chart/archive/v1.1.0.tar.gz"
   namespace        = lower(var.branch)
   create_namespace = true
   max_history      = 10
