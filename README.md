@@ -47,7 +47,7 @@ resource "helm_release" "trigger_url" {
       image_tag        = "8.2.1"
       datadog_env      = "disco-sbx"
       url_env          = "https://www.google.com"
-      cronjob_schedule = "0/10 * * * *" # Every 10 minutes
+      cronjob_schedule = "*/10 * * * *" # Every 10 minutes
     }),
     yamlencode({
       args = ["https://www.google.com"]
