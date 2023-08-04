@@ -5,7 +5,7 @@ Contains the generic helm chart that run kubernetes cron job. It is used by Prom
 ## Usage
 
 To deploy a k8s cronjob simply create a helm value file and refer it in the terraform code.
-Here and example with a value file accepting some parameters set from the terraform code
+Here it is an example with a value file accepting some parameters set from the terraform code
 
 ### Helm Value File Example
 
