@@ -1,3 +1,7 @@
+# Default values for cron helm chart
+# cron helm chart manage 2 k8s resources:
+# - CronJob
+# - ServiceAccount
 port: 80
 command: []
 args: []
@@ -8,13 +12,13 @@ image_tag: stable
 image_pull_policy: IfNotPresent
 
 cronjob:
-  schedule : /
+  schedule: /
 
-  # This flag tells the controller to suspend subsequent executions,
-  # it does not apply to already started executions. Defaults to false.
+  # cronjob.suspend -- If cronjob executions should be suspended.
   suspend: false
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
